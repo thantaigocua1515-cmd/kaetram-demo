@@ -45,7 +45,7 @@ let plugins = [
     })
 ];
 
-if (config.sentryDsn && !config.debugging)
+if (config.sentryDsn && config.sentryAuthToken && !config.debugging)
     plugins.push(
         sentryVitePlugin({
             org: config.sentryOrg,
@@ -98,10 +98,6 @@ if (import.meta.env.PROD)
                 insertAppleTouchLinks: true,
                 iconPurpose: ['any', 'maskable']
             }
-        }),
-        sitemap({
-            i18n: { locales, defaultLocale }
-            // filter: filterSitemapByDefaultLocale({ defaultLocale })
         }),
         partytown({ config: { debug: false } }),
         robotsTxt({ host: true }),
