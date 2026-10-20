@@ -5,3 +5,4 @@
   "buildCommand": "yarn workspace @kaetram/client exec astro build",
   "outputDirectory": "packages/client/dist"
 }
+# redeploy: node 24.x
